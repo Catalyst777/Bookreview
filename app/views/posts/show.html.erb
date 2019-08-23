@@ -1,0 +1,34 @@
+<h1>詳細レビュー</h1>
+<div class="nav justify-content-end">
+<%= link_to '一覧', posts_path, class: 'nav-link' %>
+</div>
+<table class="table table-hover">
+  <tbody>
+    <tr>
+      <th><%= Post.human_attribute_name(:name) %></th>
+      <th><%= @post.name %></th>
+    </tr>
+    <tr>
+      <th><%= Post.human_attribute_name(:description) %></th>
+      <td><%= auto_link(simple_format(h(@post.description), {}, sanitaize: false, wrapper_tag: "div")) %></td>
+    </tr>
+    <tr>
+      <th><%= Post.human_attribute_name(:image) %></th>
+      <td><%= image_tag @post.image if @post.image.attached? %></td>
+    </td>
+    <tr>
+      <th><%= Post.human_attribute_name(:created_at) %></th>
+      <th><%= @post.created_at %></th>
+    </tr>
+    <tr>
+      <td><%= link_to '編集', edit_post_path, class: 'btn btn-primary mr-3'%></td>
+      <td><%= link_to '削除', @post, method: :delete, data: { confirm: "レビュー「#{@post.name}」を削除します。よろしいですか？"}, class: 'btn btn-danger'%></td>
+    </tr>
+      <% if Like.find_by(post_id: @current_user.id, post_id: @post.id) %></td>
+        いいね済み
+      <% else %>
+        <%= link_to("いいね！", "/likes/#{@post.id}/create", {method: "post"})%>
+      <% end %>
+  </tbody>
+</table>
+

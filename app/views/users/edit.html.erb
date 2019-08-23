@@ -1,0 +1,5 @@
+<h1>ユーザーの編集</h1>
+<div class="nav justfy-content-end">
+  <%= link_to '一覧', users_path, class: 'nav-link' %>
+</div>
+<%= render partial: 'form', locals: { user: @user } %>

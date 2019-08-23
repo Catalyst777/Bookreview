@@ -1,0 +1,20 @@
+<h1>レビュー内容の確認</h1>
+
+<%= form_with model: @post, local: true do |f| %>
+  <table class="table table-hover">
+    <tbody>
+      <tr>
+        <th><%= Post.human_attribute_name(:name) %></th>
+        <td><%= @post.name%></td>
+        <%= f.hidden_field :name %>
+      </tr>
+      <tr>
+        <th><%= Post.human_attribute_name(:description) %></th>
+        <td><%= simple_format(@post.description) %></td>
+        <%= f.hidden_field :description %>
+      </tr>
+    </tbody>
+  <%= f.submit '戻る', name: 'back', class: 'btn btn-secondary mr-3' %>
+  <%= f.submit '登録', class: 'btn btn-primary' %>
+  </table>
+<% end %>
