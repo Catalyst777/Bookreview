@@ -5,12 +5,13 @@ class PostsController < ApplicationController
     @posts = @q.result(distinct: true).page(params[:page])
 
     respond_to do |format|
-      format.html 
+      format.html
       format.csv { send_data @posts.generate_csv, filename: "posts-#{Time.zone.now.strftime('%Y%m%d%S')}.csv" }
     end
   end
 
   def show
+    @likes_count = Like.where(post_id: @post.id).count
   end
 
   def new
@@ -37,7 +38,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    
+
     if params[:back].present?
       render :new
       return
@@ -49,13 +50,13 @@ class PostsController < ApplicationController
       render :new
     end
   end
-  
+
   private
-  
+
   def post_params
     params.require(:post).permit(:name, :description, :image)
   end
-  
+
   def set_post
     @post = Post.find(params[:id])
   end

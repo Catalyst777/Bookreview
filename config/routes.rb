@@ -12,5 +12,6 @@ Rails.application.routes.draw do
   #いいね機能追加分ここから
   post '/likes/:post_id/create' => 'likes#create'
   post '/likes/:post_id/destroy' => 'likes#destroy'
+  get 'users/:id/likes' => 'users#likes'
   #ここまで
 end

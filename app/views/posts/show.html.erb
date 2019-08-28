@@ -14,7 +14,7 @@
     </tr>
     <tr>
       <th><%= Post.human_attribute_name(:image) %></th>
-      <td><%= image_tag @post.image if @post.image.attached? %></td>
+      <td><%= image_tag @post.image.variant(resize:'400x400').processed if @post.image.attached? %></td>
     </td>
     <tr>
       <th><%= Post.human_attribute_name(:created_at) %></th>
@@ -24,8 +24,9 @@
       <td><%= link_to '編集', edit_post_path, class: 'btn btn-primary mr-3'%></td>
       <td><%= link_to '削除', @post, method: :delete, data: { confirm: "レビュー「#{@post.name}」を削除します。よろしいですか？"}, class: 'btn btn-danger'%></td>
     </tr>
+      <%= @likes_count %>
       <% if Like.find_by(post_id: @current_user.id, post_id: @post.id) %></td>
-        いいね済み
+        <%= link_to("いいね！済み", "/likes/#{@post.id}/destroy", {method: "post"}) %>
       <% else %>
         <%= link_to("いいね！", "/likes/#{@post.id}/create", {method: "post"})%>
       <% end %>
