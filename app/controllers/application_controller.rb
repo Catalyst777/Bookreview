@@ -1,6 +1,11 @@
 class ApplicationController < ActionController::Base
   helper_method :current_user
   before_action :login_required
+  skip_before_action :login_required, only: [:about], raise: false
+
+  def about
+    render about_path
+  end
 
   private
 

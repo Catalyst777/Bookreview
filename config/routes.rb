@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  
+  get '/about' => 'home#about'
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
@@ -9,9 +11,8 @@ Rails.application.routes.draw do
     post :confirm, action: :confirm_new, on: :new
   end
   
-  #いいね機能追加分ここから
   post '/likes/:post_id/create' => 'likes#create'
   post '/likes/:post_id/destroy' => 'likes#destroy'
   get 'users/:id/likes' => 'users#likes'
-  #ここまで
+
 end
