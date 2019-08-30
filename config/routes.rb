@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
   resources :users
-  
+
   root to: 'posts#index'
   resources :posts do
     post :confirm, action: :confirm_new, on: :new

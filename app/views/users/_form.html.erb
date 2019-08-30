@@ -1,8 +1,8 @@
 <% if user.errors.present? %>
   <ul id="error_explanation"> 
-  <% user.errors.full_messages.each do |message| %>
-    <li><%= message %></li>
-  <% end %>
+    <% user.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
   </ul>
 <% end %>
 <%= form_with model: @user, local: true do |f| %>
