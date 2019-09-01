@@ -2,6 +2,7 @@ class SessionsController < ApplicationController
   skip_before_action :login_required, only: [:new, :create], raise: false
 
   def new
+    @user=User.new
   end
 
   def create
