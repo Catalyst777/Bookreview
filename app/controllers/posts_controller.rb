@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+
   def index
     @q = Post.ransack(params[:q])
     @posts = @q.result(distinct: true).page(params[:page])
@@ -11,6 +12,7 @@ class PostsController < ApplicationController
   end
 
   def show
+    @user = @post.user
     @likes_count = Like.where(post_id: @post.id).count
   end
 
@@ -37,7 +39,8 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
+    # @post = Post.new(post_params)
+    @post = Post.new(post_params, user_id: @current_user.id)
 
     if params[:back].present?
       render :new
@@ -48,6 +51,14 @@ class PostsController < ApplicationController
       redirect_to @post, notice: "レビュー「#{@post.name}を登録しました。」"
     else
       render :new
+    end
+  end
+
+  def ensure_correct_user
+    @post = Post.find_by(id: params[:id])
+    if @post.user_id != @current_user.id
+      flash[:notice] = "権限がありません"
+      redirect_to post_path
     end
   end
 

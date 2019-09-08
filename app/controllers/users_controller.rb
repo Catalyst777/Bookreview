@@ -19,7 +19,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      redirect_to user_path(@user), notice: "ユーザー「#{@user.name}」を登録しました。"
+      redirect_to login_path, notice: "ユーザー「#{@user.name}」を登録しました。ログイン画面からログインして下さい。"
     else
       render :new
     end

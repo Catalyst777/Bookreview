@@ -1,5 +1,6 @@
-<h1>レビューの編集</h1>
+<h1 class="ml-3 mt-3">レビューの編集</h1>
 <div class="nav justify-content-end">
-<%= link_to '一覧', posts_path, class: 'nav-link' %> 
+<%= link_to '一覧', posts_path, class: 'nav-link btn btn-info mr-3' %>
+<!--<%= link_to '一覧', confirm_new_post_path, class: 'nav-link btn btn-info mr-3' %>-->
 </div>
 <%= render partial: 'form', locals: { post: @post } %>
