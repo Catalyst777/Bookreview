@@ -39,9 +39,10 @@ class PostsController < ApplicationController
   end
 
   def create
+    current_user
     # @post = Post.new(post_params)
     @post = Post.new(post_params, user_id: @current_user.id)
-    # @post = Post.new(description: params[:description], user_id: @current_user.id)
+    # @post = Post.new(name: params[:name], description: params[:description], user_id: @current_user.id)
 
     if params[:back].present?
       render :new
@@ -66,7 +67,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:name, :description, :image)
+    params.require(:post).permit(:id, :name, :description, :image, :user_id)
   end
 
   def set_post
