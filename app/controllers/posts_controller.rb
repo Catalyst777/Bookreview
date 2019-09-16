@@ -40,9 +40,11 @@ class PostsController < ApplicationController
 
   def create
     current_user
-    # @post = Post.new(post_params)
-    @post = Post.new(post_params, user_id: @current_user.id)
-    # @post = Post.new(name: params[:name], description: params[:description], user_id: @current_user.id)
+
+    params_hash = post_params
+    params_hash['user_id'] = @current_user.id
+  
+    @post = Post.new(params_hash)
 
     if params[:back].present?
       render :new

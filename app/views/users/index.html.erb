@@ -13,7 +13,7 @@
     <tbody>
       <% @users.each do |user| %>
         <tr>
-          <td><%= link_to user.name %></td>
+          <td><%= link_to user.name, user %></td>
           <td><%= user.email %></td>
           <td><%= user.created_at %></td>
           <td><%= user.updated_at %></td>
@@ -22,5 +22,4 @@
         </tr>
     </tbody>
       <% end %>
-          
   </table>

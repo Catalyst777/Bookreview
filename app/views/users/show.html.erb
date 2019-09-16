@@ -1,8 +1,8 @@
-<h1>ユーザーの詳細</h1>
-<div class="nav justfy-content-end">
-<%= link_to '一覧', users_path, class: 'nav-link'%>
+<h1 class="ml-3 mt-3">ユーザーの詳細</h1>
+<div class="nav justify-content-end">
+<%= link_to '一覧', users_path, class: 'nav-link btn btn-info mr-3'%>
 </div>
-<table class="table table-hover">
+<table class="table table-hover ml-3">
   <tbody>
     <tr> 
       <th><%= User.human_attribute_name(:id) %></th>
@@ -27,4 +27,4 @@
   </tbody>
 </table>
 <!--<%= link_to '編集', edit_user_path, class: 'btn btn-primary mr-3' %>-->
-<!--<%= link_to '削除', [:user, @user], method: :delete, data: { confirm: "ユーザー「#{@user.name}」を削除します。よろしいですか？"}, class: 'btn btn-danger' %>-->
+<!--%= link_to '削除', [:user, @user], method: :delete, data: { confirm: "ユーザー「#{@user.name}」を削除します。よろしいですか？"}, class: 'btn btn-danger' %>-->

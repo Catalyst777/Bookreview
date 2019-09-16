@@ -5,7 +5,6 @@ class Post < ApplicationRecord
     validates :user_id, {presence: true}
     validate :validate_name_not_including_comma
     scope :recent, -> { order(created_at: :desc) }
-    # Ex:- scope :active, -> {where(:active => true)}
 
     def user
         return User.find_by(id: self.user_id)
