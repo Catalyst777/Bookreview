@@ -30,7 +30,7 @@
     <% end %>
     </tr>
       <%= @likes_count %>
-      <% if Like.find_by(post_id: @current_user.id, post_id: @post.id) %></td>
+      <% if Like.find_by(user_id: @current_user.id, post_id: @post.id) %>
         <%= link_to("いいね！済み", "/likes/#{@post.id}/destroy", {method: "post"}) %>
       <% else %>
         <%= link_to("いいね！", "/likes/#{@post.id}/create", {method: "post"})%>

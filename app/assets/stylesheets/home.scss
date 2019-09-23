@@ -1,3 +1,30 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.about-container {
+    border: solid 1px color-whitegray;
+    background-color: white;
+    text-align: center;
+    margin: 30px auto;
+    width: 800px;
+    box-shadow: 0 0 8px black;
+    padding: 50px;
+}
+  
+  .about-container h3 {
+    font-size: 36px;
+    margin-bottom: 50px;
+    border-bottom: solid 1px color-whitegray;
+    padding-bottom: 5px;
+}
+  
+  .about-container p {
+    line-height: 20px;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.main-wrapper {
+    padding-top: 50px;
+    flex: 1;
+}
