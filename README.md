@@ -1,24 +1,20 @@
-# README
+①概要
+本のレビュー投稿サービス
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+②機能一覧
+・ログイン/アウト
+・簡単ログイン
+・ユーザ登録
+・レビュー一覧表示
+・レビュー詳細表示
+・レビュー投稿
+・画像アップロード
+・ページネーション
+・エクスポート
+・単体テスト、統合テスト
+・書籍検索機能
+・いいね機能
+・ソート機能
+③使用した技術
+DB:PostgreSQL
+インフラ:AWS(EC2、VPC、RDS、S3、Route53)
