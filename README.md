@@ -1,8 +1,44 @@
-①概要
-本のレビュー投稿サービス
+**本のレビュー投稿アプリ**
+***
+好きな本についてレビューすることができるアプリです。気に入った本についてレビューし、他の人のレビューに関してもいいね
+をつけることができます。また、レビューされた書籍を検索する機能も実装しております。
 
-②機能一覧
+**アプリケーションURL**
+***
+http://13.114.194.176/
 
+ログイン画面にある「簡単ログイン」からテストユーザーとしてログイン可能です。
+
+**使用した技術**
+***
+プログラミング言語:Ruby2.6.1
+
+フレームワーク:Rails5.2.3
+
+・インフラ:AWS(EC2,ECS,S3,VPC,RDS,IAM)
+
+使用したgem一覧
+
+Bootstrap
+
+・rails_autolink
+
+・rspec
+
+・factory_bot_rails
+
+・ransack
+
+・kaminari
+
+・mini_magick
+
+DB:PostgreSQL
+
+インフラ:Heroku
+
+**機能一覧**
+***
 ・ログイン/アウト
 
 ・簡単ログイン
@@ -29,28 +65,12 @@
 
 ・ソート機能
 
-③使用した技術
+**現在取り組んでいること**
+***
+・本番環境にDockerを導入
 
-プログラミング言語:Ruby2.6.1
+ - インフラのコード化として
 
-フレームワーク:Rails5.2.3
+・CI/CDツールにCircleCIを導入
 
-使用したgem一覧
-
-・Bootstrap
-
-・rails_autolink
-
-・rspec
-
-・factory_bot_rails
-
-・ransack
-
-・kaminari
-
-・mini_magick
-
-DB:PostgreSQL
-
-インフラ:AWS(EC2、VPC、RDS、S3、Route53)
+・Terraformを導入
